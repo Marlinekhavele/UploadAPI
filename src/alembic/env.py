@@ -57,7 +57,7 @@ def run_migrations_online() -> None:
     In this scenario we need to create an Engine
     and associate a connection with the context.
     """
-    db_url = settings.DB_URL_SYNC
+    db_url = str(settings.DB_URL_SYNC)
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
         prefix="sqlalchemy.",

@@ -20,25 +20,11 @@ class Settings(BaseSettings):
 
     @property
     def DB_URL(self) -> str:
-        return PostgresDsn.build(
-            scheme="postgresql+asyncpg",
-            host=self.DB_HOST,
-            port=self.DB_PORT,
-            path=f"/{self.DB_NAME}",
-            # user=self.DB_USER,
-            password=self.DB_PASSWORD,
-        )
+        return f'postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'
+        
 
     @property
     def DB_URL_SYNC(self) -> str:
-        return PostgresDsn.build(
-            scheme="postgresql",
-            host=self.DB_HOST,
-            port=self.DB_PORT,
-            path=f"/{self.DB_NAME}",
-            # user=self.DB_USER,
-            password=self.DB_PASSWORD,
-        )
-
+        return f'postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'
 
 settings = Settings()
