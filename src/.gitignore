@@ -1,0 +1,34 @@
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+setup.py
+htmlcov/
+.test-reports/
+.coverage
+.coverage.*
+.pytest_cache/
+dist/
+*.egg-info/
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+.tmuxp.*
+
+# dotenv
+*.env
+.dev.env
+*.dev.env
+
+# virtualenv
+*.venv
+venv/
+ENV/
+myenv/
+
+

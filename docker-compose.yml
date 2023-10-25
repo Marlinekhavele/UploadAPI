@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  file-api-app-db:
+    image: postgres:13.3-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=file_api_app
+    ports:
+      - 5432:5432
+    volumes:
+      - file_api_app_db_data:/var/lib/postgresql/data/
+
+  file-api-app-test-db:
+    image: postgres:13.3-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test_db
+    ports:
+      - 5433:5432
+    volumes:
+      - file_api_app_api_app_test_db_data:/var/lib/postgresql/data/
+
+volumes:
+  file_api_app_db_data:
+    driver: "local"
+    name: "file_api_app_db_data"
+
+  file_api_app_test_db_data:
+    driver: "local"
+    name: "file_api_app_test_db_data"
